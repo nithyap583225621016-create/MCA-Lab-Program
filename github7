@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Student Registration</h2>
+
+<form onsubmit="return validateForm()">
+  Name: <input type="text" id="name"><br><br>
+  Email: <input type="text" id="email"><br><br>
+  Password: <input type="password" id="pass"><br><br>
+  <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("pass").value;
+
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+  if (name.length < 3) {
+    alert("Name must be at least 3 characters");
+    return false;
+  }
+
+  if (!email.match(emailPattern)) {
+    alert("Invalid Email");
+    return false;
+  }
+
+  if (pass.length < 6) {
+    alert("Password must be at least 6 characters");
+    return false;
+  }
+}
+</script>
+
+</body>
+</html>
